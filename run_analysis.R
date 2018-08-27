@@ -35,7 +35,8 @@ colnames(subject) <-  "Subject"
 Data <- cbind(subject, Data)
 
 #Final Tidy Data
-write.csv(Data, "tidydata.csv")
+write.table(Data, "tidydata.txt",row.names = F)
 
 #From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 Data %>% group_by(Subject,ActivityName) %>% summarise_all(mean) -> Sum_Data
+write.table(Sum_Data, "summariseddata.txt",row.names = F)
